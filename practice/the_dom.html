@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>DOM Exercise</title>
+    <meta charset="UTF-8" />
+    <style>
+      .heading { text-align: center; }
+      ul { list-style: none; }
+      .bulleted { list-style: disc; }
+      .hidden { display: none; }
+      #notice {
+        padding: 15px;
+        color: #a2a299;
+        background: #f0f0aa;
+      }
+      body#styled {
+        padding: 25px 0;
+        margin: 0;
+        font: normal 16px Helvetica, Arial, sans-serif;
+        color: #16997c;
+        background: #5bccb3;
+      }
+      body#styled main {
+        display: block;
+        max-width: 550px;
+        padding: 20px;
+        margin: 0 auto;
+        background: #ffffff;
+        box-sizing: border-box;
+      }
+      body#styled h1 {
+        text-align: center;
+        color: #CC183E;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 id="primary_heading">I should have a class of heading</h1>
+      <ul id="list">
+        <li>This list</li>
+        <li>Needs a class</li>
+        <li>Of bulleted</li>
+      </ul>
+      <p>This <a href="#" id="toggle">link</a> needs a click handler on it. The handler will find the div with id of notice and check its class. If it has a class of hidden, change it to a class of visible. Otherwise, change it to hidden.</p>
+      <div id="notice" class="hidden">
+        <p>Oh no! I'm allergic to the light! Hide me, quick! Click the link above!</p>
+      </div>
+      <p id="multiplication">What's 13 times 9?</p>
+    </main>
+    <script>
+      // 1.Use JavaScript to set a class of 'heading' to the heading (the h1 element).
+      let headingElement = document.getElementById('primary_heading');
+      headingElement.setAttribute('class', 'heading');
+      // or document.getElementById('primary-heading').setAttribute('class', 'heading');
+
+      // 2.Use JavaScript to set the class of the ul element to 'bulleted'.
+      let ulElement = document.querySelector('ul');
+      ulElement.classList.add('bulleted');
+      // or document.querySelector('ul').classList.add('bulleted');
+
+      // 3. Use the Inspector to find the hidden element and determine its ID. Following this, set the onclick property on the link with an ID of toggle to a function that makes the element visible when it's hidden and hides it when it's visible. You can use getAttribute to access the class, and setAttribute to set it; the class names of interest are 'visible' and 'hidden'.
+
+      // let linkElement = document.querySelector('#toggle');
+      // let noticeElement = document.querySelector('#notice');
+
+      // linkElement.onclick = function hideNotice(e) {
+      //   e.preventDefault();
+
+      //   noticeElement.classList.toggle('hidden');
+
+        // if (noticeElement.classList.contains('hidden')) {
+        //   noticeElement.classList.remove('hidden');
+        // } else {
+        //   noticeElement.classList.add('hidden');
+        // }
+      // }
+
+      // or
+
+      let notice = document.querySelector('#notice');
+
+      document.querySelector('#toggle').onclick = function hideNotice(e) {
+        e.preventDefault();
+
+        notice.classList.toggle('hidden');
+      }
+
+      // 4.Add an onclick event to the element we show and hide above. This time, the function should set the class of the element to 'hidden'. This event will let you hide the visible element by clicking on it. As with the previous function, the first thing the function should do is invoke e.preventDefault.
+
+      notice.onclick = function noticeHideMyself(e) {
+        e.preventDefault();
+
+        e.currentTarget.classList.toggle('hidden');
+      }
+
+      // 5. Locate the multiplication paragraph and change the text to the result of the arithmetic problem.
+
+      document.querySelector('#multiplication').innerText = `${13 * 9}`;
+
+      // 6. Set the ID of the body element to 'styled' to apply the rest of the styles from the original file. The body tag in this file doesn't have an ID, so you must locate it by some other means.
+
+      document.body.setAttribute('id', 'styled');
+    </script>
+  </body>
+</html>

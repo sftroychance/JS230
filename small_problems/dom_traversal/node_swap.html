@@ -1,0 +1,59 @@
+<!-- Write a function that takes two element ids as arguments and swaps the positions of the elements represented by the ids. The function returns true for valid swaps and undefined for invalid. To put the focus on the node swapping functionality, you can assume that nodes will have a value for the id attribute and two arguments will always be provided.
+
+- get elements using provided IDs - element1 and element2
+- must make sure both elements exist - if not return undefined
+- must make sure one element is not an ancestor of the other (`Node.contains()`) - if so return undefined
+
+- create null node `nullNode`
+- element1.parentNode.replaceChild(nullNode, element1);
+- element2.parentNode.replaceChild(element1, element2);
+- nullNode.parent.replaceChild(element2, nullNode);
+- return true
+
+solution notes: LS solution clones the elements and then replaces, and further exploration asks to do this without losing event listeners (which happens with cloned nodes); my original solution did not use clones, just a 'dummy' element to facilitate a direct swap of the elements
+
+one thing I forgot: to remove the dummy element (nullElement) from the DOM after the swap is made
+
+-->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Node Swap</title>
+  </head>
+  <body>
+    <div id="1">
+      <div id="4"></div>
+      <div id="5">
+        <div id="6"></div>
+      </div>
+    </div>
+    <div id="2"></div>
+    <div id="3">
+      <div id="7"></div>
+      <div id="8"></div>
+      <div id="9"></div>
+    </div>
+    <script>
+      function nodeSwap(id1, id2) {
+        const element1 = document.getElementById(id1);
+        const element2 = document.getElementById(id2);
+
+        if (!element1 || !element2 ||
+            element1.contains(element2) || element2.contains(element1)) {
+              return undefined;
+        }
+
+        const nullElement = document.createElement(null);
+
+        element1.parentNode.replaceChild(nullElement, element1);
+        element2.parentNode.replaceChild(element1, element2);
+        nullElement.parentNode.replaceChild(element2, nullElement);
+
+        nullElement.remove();
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

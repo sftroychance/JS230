@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nodes to Array</title>
+  </head>
+  <body>
+    <header id="1"></header>
+    <main id="2">
+      <div></div>
+      <div></div>
+    </main>
+    <footer id="3"></footer>
+    <script>
+      function nodesToArr(current = document.body) {
+        let result = [current.tagName, []];
+
+        // base case, no children, simply skips this for loop
+        for (const child of current.children) {
+          if (child.tagName !== 'SCRIPT') {
+            result[1].push(nodesToArr(child));
+          }
+        }
+
+        return result;
+      };
+    </script>
+  </body>
+</html>
+
+<!-- JSON.stringify(nodesToArr()) ===
+'["BODY",[["HEADER",[]],["MAIN",[["DIV",[]],["DIV",[]]]],["FOOTER",[]]]]' -->

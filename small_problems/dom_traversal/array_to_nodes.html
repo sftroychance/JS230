@@ -1,0 +1,46 @@
+<!-- First solution was incorrect (created HTML string not nodes)
+
+The assignment is to create a function that converts the nested array to nodes,
+but does not indicate to add the nodes to the page. Logging the nodes in Chrome will
+show the node structure in any case.
+
+An issue is that the structures given include the 'body' element, and so we can't append that structure to existing HTML; even if we leave out the 'body' element from the original HTML,
+the browser will insert 'body' into the DOM'.
+
+To view the results on the webpage, we can assign the result to 'document.body':
+
+document.body = arrayToNodes(nodes)
+
+let nodes = ["BODY",[["HEADER",[]],["MAIN",[]],["FOOTER",[]]]];
+console.log(arrayToNodes(nodes));
+- or
+document.body = arrayToNodes(nodes));
+
+nodes = ["BODY",[["DIV",[["DIV",[]],["DIV",[["DIV",[]]]]]],["DIV",[]],["DIV",[["DIV",[]],["DIV",[]],["DIV",[]]]]]];
+console.log(arrayToNodes(nodes));
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function arrayToNodes([nodeTag, nodeChildren]) {
+      const current = document.createElement(nodeTag);
+
+      if (nodeChildren.length === 0) {
+        return current;
+      } else {
+        for (child of nodeChildren) {
+          current.appendChild(arrayToNodes(child));
+        }
+      }
+
+      return current;
+    }
+  </script>
+</body>
+</html>

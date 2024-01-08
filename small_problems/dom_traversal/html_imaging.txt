@@ -1,0 +1,107 @@
+Read the JavaScript code below. Given the code, create the HTML that matches the DOM rendered by the browser. You don't need to account for the text nodes when creating the HTML. The challenge of this exercise is trying to picture what the HTML will be without running the code. At the very least, try attempting it first with pen and paper. Assume that the following HTML is the starting point:
+
+<!doctype html>
+<html>
+  <head>
+    <title>HTML Imaging</title>
+  </head>
+  <body>
+  </body>
+</html>
+
+const node1 = document.createElement('header');
+<header></header>
+
+const node2 = document.createTextNode('Dynamic Content');
+'Dynamic Content'
+
+node1.innerHTML = '<p>Hello World!</p>';
+<header>
+  <p>Hello World!</p>
+</header>
+
+document.body.appendChild(node1);
+<body>
+	<header>
+		<p>Hello World!</p>
+	</header>
+</body>
+
+document.body.firstElementChild.insertBefore(node2, node1.firstElementChild);
+<body>
+	<header>
+    Dynamic Content
+		<p>Hello World!</p>
+	</header>
+</body>
+
+const node3 = document.createElement('h1');
+<h1></h1>
+
+node3.appendChild(node2);
+<h1>Dynamic Content</h1>
+
+document.body.firstElementChild.insertBefore(node3, node1.firstElementChild);
+<body>
+	<header>
+    <h1>Dynamic Content</h1>
+		<p>Hello World!</p>
+	</header>
+</body>
+
+node1.setAttribute('id', 'header');
+node3.classList.add('emphasis');
+node3.classList.add('light');
+<body>
+	<header id="header">
+    <h1 class="emphasis light">Dynamic Content</h1>
+		<p>Hello World!</p>
+	</header>
+</body>
+
+const node4 = document.createElement('style');
+const css1 = ".emphasis { font-weight: bold; }";
+const css2 = ".light { color: gray; }";
+node4.type = 'text/css';
+
+node4.appendChild(document.createTextNode(css1));
+node4.appendChild(document.createTextNode(css2));
+<style>
+  .emphasis { font-weight: bold; }
+  .light { color: gray; }
+</style>
+
+document.head.appendChild(node4);
+
+final html (note * error discussed below html):
+
+<!doctype html>
+<html>
+  <head>
+    <title>HTML Imaging</title>
+		<style type="text/css">
+			.emphasis { font-weight: bold; }
+			.light { color: gray; }
+		</style>
+  </head>
+	<body>
+		<header id="header">
+			<h1 class="emphasis light">Dynamic Content</h1>
+*			Dynamic Content
+			<p>Hello World!</p>
+		</header>
+	</body>
+</html>
+
+error above:
+the text node 'Dynamic Content' does not appear before the <p> element
+reason for the error:
+// we create node2
+const node2 = document.createTextNode('Dynamic Content');
+// we place node2 into the DOM before the <p>
+document.body.firstElementChild.insertBefore(node2, node1.firstElementChild);
+// we create node3
+const node3 = document.createElement('h1');
+// we append node2 as a child to node3
+// This removes node2 from the DOM!!
+node3.appendChild(node2);
