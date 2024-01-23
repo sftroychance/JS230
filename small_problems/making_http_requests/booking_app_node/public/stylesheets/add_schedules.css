@@ -1,0 +1,50 @@
+div#content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 500px;
+}
+
+fieldset {
+  border: 1px solid black;
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+form li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+form li label {
+  text-align: right;
+  font-weight: bold;
+  width: 100px;
+}
+
+form li input {
+  width: 200px;
+}
+
+button {
+  background-color: lightblue;
+  font-weight: bold;
+  height: 30px;
+  width: 120px;
+}

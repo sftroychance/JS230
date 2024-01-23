@@ -1,0 +1,36 @@
+form {
+  display: flex;
+  flex-direction: column;
+  border: 4px double black;
+  padding: 5px 20px;
+}
+
+form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+form li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+form li label {
+  text-align: right;
+  font-weight: bold;
+  width: 50px;
+}
+
+form li input {
+  width: 200px;
+}
+
+form input[type="submit"] {
+  background-color: lightblue;
+  font-weight: bold;
+  height: 30px;
+  width: 85px;
+}

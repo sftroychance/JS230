@@ -1,0 +1,25 @@
+booking app installed:
+url: https://dbdwvr6p7sskw.cloudfront.net/js-exercises/making_http_requests/booking_app_node.zip
+
+node version manager installed
+node set to version 3.14.0
+
+For nvm commands:
+https://github.com/nvm-sh/nvm#usage
+
+installs latest version: nvm install node
+
+Exercise:
+
+You'll be using a booking app throughout the exercise group, "Making HTTP Requests." To help you explore the documentation, try answering the following questions by running the server, opening your browser, visiting /doc, and carefully reading the documentation available for each route in the app. The app has seed data, so you can freely test out the different routes. You should only need to visit one route to determine the answer; if you'll need to visit more than one route, then the answer is "There is no route that will provide this information."
+
+How many staff are there? /api/staff_members
+How many students are there? /api/students
+How many schedules exist? /api/schedules
+How many schedules have bookings? /api/schedules (where student_email not null)
+Do all staff have schedules?  "There is no route that will provide this information."
+(could get all staff members and then check schedules for each staff member)
+Did all students book a schedule?  "There is no route that will provide this information."
+(would need to get all student emails and check all schedules)
+
+

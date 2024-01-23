@@ -1,0 +1,37 @@
+Implement a function that retrieves all the schedules that are available. If one or more schedules are available, tally the count of schedules for each staff and alert the user of result as "key: value" pairs with the staff id as key (in the format of 'staff {id}'; e.g, 'staff 1') and the count of schedules as the value. If there are no schedules, alert the user that there are currently no schedules available for booking.
+
+ When implementing the function, keep in mind that the server has been known to slow down when there are more than 7 schedules to retrieve. It doesn't always happen, but be sure to handle it accordingly. Once 5 seconds have passed, cancel the retrieval and inform the user to try again.
+
+ Finally, inform the user about the completion of the request regardless of the success or failure (timeout) of the request.
+
+ - to prevent cross-origin requests, create a public html file in the app project to view
+the results of our code.
+
+Notes:
+
+- took a while to understand the page setup--we're hosting the API and the page accessing it on the same server (so we don't get cross-origin errors)
+
+- on my first pass, I didn't take the term 'alert' literally and used DOM manipulation to render all results and messages to the HTML page; changed this to alerts when I saw the LS solution. Need to remember that 'alert' likely means use an alert box, not just inform.
+
+- on Further exploration, we are asked to use /api/schedules/:id to get a count of the number of schedules per staff member. I implemented this by writing a function to return a promise for an XHR request and then Promise.all (so the multiple page requests can occur in parallel). However, I think the idea of making these individual XHR calls (as opposed to parsing the list of all schedules) is less than ideal, as we go from 1 XHR request to 4, which is inefficient, and we are told we should optimize to reduce XHR requests.
+
+code for getting promises for XHR:
+function xhrPromise(url) {
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    request.open('GET', url);
+    request.responseType = 'json';
+    request.setRequestHeader('Content-type', 'application/json; charset: utf-8');
+
+    request.addEventListener('load', (e) => resolve(e.target.response));
+    request.addEventListener('error', () => reject('Unable to retrieve data.'));
+    request.send();
+  });
+}
+- note resolve and reject
+- resolve returns the actual response, not the event
+- reject returns a message that will be captured by the .catch handler for Promise.all
+
+The exercise so far has been useful at getting comfortable with requests, particularly in the context of promises. Spent some time refactoring.
+
+- later realized that, as in the above code, it is not necessary to set the `Content-type` header for these XHR requests, as we are not sending any data (`Content-type` indicates what type of data you are sending in the body of the request.)

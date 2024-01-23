@@ -1,0 +1,22 @@
+Implement a form for adding new staff, and then use the booking app API to add the staff to the database. Your implementation should handle the different possible responses of the server and inform the user of the outcome.
+
+- for an additional challenge, I will set up the form using the DOM
+
+- create FormElement
+- create H1 to title the form
+- create two text input elements:
+  - email: input type=email (which will validate) (there are :valid and :invalid css pseudo-classes) - we might need to add our own validation code
+  - name: input type=text
+  - button: button type=button (don't have to prevent default when using this)
+
+  - error alert if both fields are not filled out
+  - success alert if staff added (indicate new ID# - returned with successful add)
+
+  - form reset after successful add (if not automatic)
+
+  - post using JSON - set Content-type and responseType
+    - might be easier to use FormData - don't have to iterate over form elements
+
+  - question: should we be making sure both fields are filled out? it looks like in the example the PUT request is being submitted and then the error message from the server is being shown in the alert
+
+- create new HTML page for this form
