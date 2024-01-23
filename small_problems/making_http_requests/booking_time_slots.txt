@@ -1,0 +1,34 @@
+Implement the markup and JavaScript for booking a schedule. Be sure to check out the documentation on the requirements for a booking.
+
+In the event that the student who's booking the appointment isn't in the database, you must provide a way for the user to create the student, and then automatically proceed with the booking once the student is successfully created.
+
+Assume that only one schedule at a time can be booked.
+
+Page: Form with
+1 select element: dropdown of all available schedules:
+      - options are staff name | date | time
+      - values for options: schedule id
+      - info: get all available schedules, filter out those where email is not null
+        - /api/schedules returns staff_id, so we will need another fetch to /api/staff_members to match those ids to names (memoize staff info)
+        - both of these get requests return json
+1 email label/text field
+1 submit button in line with email label/field
+
+user Walkthrough:
+- select a schedule from drop-down
+- enter email
+- hit submit POST /api/bookings -
+- if student has been registered previously and booked now, success 204
+- if schedule does not exist, error 404
+- if student not already registered, also error 404 this will return error message, which will contain booking_sequence
+  - display a second form to register student
+  - form with:
+    - header
+    - email label and input - email prefilled and send focus to name field (can clone earlier email elements)
+    - name label and input
+    - booking sequence label and input, pre-filled, not editable
+    - button to submit POST /api/students
+      - success 201: alert message then go ahead and book the appt after this (booking appt should be its own method), which has an additional alert, then reset page
+      - error 403 no booking sequence (should not happen) - alert and don't reset page
+      - error 400 empty fields: alert message and do not reset page
+

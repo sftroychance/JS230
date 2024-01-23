@@ -1,0 +1,19 @@
+Implement the markup and JavaScript to view bookings made by students. The view for bookings should have two levels of detail. The first level shows only a list of dates that have bookings. The second level becomes visible only when a date is clicked and shows a nested list of booking details for the data. Details include the staff name, student email address, and the time booked.
+
+urls:
+to get all dates with bookings: /api/bookings  -> success 200 - array of arrays (simple join)
+to get all bookings for date: /api/bookings/:date -> success 200 - array of dates
+
+DOM loaded:
+- get all dates with bookings
+- build and display list of dates
+
+- event listeners on dates (on ul parent)
+  - click: get all bookings for date
+  - build ul with details of bookings
+  - append ul to the li (event.target)
+
+There is no stated requirement to fold when clicking date again (but possible additional functionality)
+
+Pretty straightforward to implemented.
+Added functionality to click on the date to fold the details. When the date is clicked again after that, a new fetch is performed, but this is consistent with a web app in which underlying data might have changed between requests.

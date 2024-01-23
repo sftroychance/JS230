@@ -1,0 +1,60 @@
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+div#new_student {
+  background-color:lightgrey;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 500px;
+}
+
+fieldset {
+  border: 1px solid black;
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+form li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+form li label {
+  text-align: right;
+  font-weight: bold;
+  /* width: 50px; */
+}
+
+/* label#select_label {
+  /* width: 200px; */
+  text-align: left;
+} */
+
+form li input {
+  width: 200px;
+}
+
+button {
+  background-color: lightblue;
+  font-weight: bold;
+  height: 30px;
+  width: 120px;
+}

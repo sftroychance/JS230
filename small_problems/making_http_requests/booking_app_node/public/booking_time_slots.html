@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./stylesheets/booking_time_slots.css" type="text/css" rel="stylesheet">
+  <title>Booking a Time Slot</title>
+</head>
+<body>
+  <div id="booking"></div>
+    <form id="main">
+      <ul>
+        <li>
+          <label for="schedule" id="select_label">Please select one schedule</label>
+          <select id="schedule" name="schedule"></select>
+        </li>
+        <li>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+          <button type="button" id="submitBookingBtn">Submit</button>
+        </li>
+      </ul>
+    </form>
+  <script src="./javascripts/booking_time_slots.js"></script>
+</body>
+</html>
