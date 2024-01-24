@@ -9,8 +9,8 @@ label {
 }
 
 li {
-  max-width: 500px;
-  height: 40px;
+  max-width: 600px;
+  padding: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -20,6 +20,10 @@ li {
 
 li:first-of-type {
   border-top: none;
+}
+
+li p {
+  max-width: 200px;
 }
 
 .booked {
@@ -35,4 +39,5 @@ li:first-of-type {
 
 button {
   background-color: white;
+  max-width: 150px;
 }

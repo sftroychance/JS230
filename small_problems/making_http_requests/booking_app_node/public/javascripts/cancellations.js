@@ -1,7 +1,6 @@
-//
-
 document.addEventListener('DOMContentLoaded', () => {
   const selectElement = document.querySelector('#staff_select');
+
   loadStaffList();
 
   selectElement.addEventListener('change', () => {
@@ -10,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelector('#schedule')?.remove();
+
     loadStaffSchedule(selectElement.value);
   });
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       line.setAttribute('scheduleID', schedule.id);
 
       const lineText = document.createElement('p');
-      lineText.textContent = `Date: ${schedule.date} Time: ${schedule.time}`;
+      lineText.textContent = `Date: ${schedule.date} | Time: ${schedule.time}`;
       line.appendChild(lineText);
 
       const lineButton = document.createElement('button');
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (schedule.student_email) {
         line.classList.add('booked');
         lineButton.setAttribute('buttonTarget', 'booking');
-        lineButton.textContent = 'Cancel booking';
+        lineButton.textContent = `Cancel booking: ${schedule.student_email}`;
       } else {
         lineButton.setAttribute('buttonTarget', 'schedule');
         lineButton.textContent = 'Cancel schedule';
@@ -76,15 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
     scheduleList.addEventListener('click', (e) => {
       const target = e.target;
       if (target.tagName === 'BUTTON') {
-        const scheduleID = target.parentElement.getAttribute('scheduleID');
+        const listItem = target.parentElement;
+        const scheduleID = listItem.getAttribute('scheduleID');
 
         if (target.getAttribute('buttonTarget') === 'booking') {
           target.setAttribute('buttonTarget', 'schedule');
           target.textContent = 'Cancel schedule';
-          target.parentElement.classList.remove('booked');
+
+          listItem.classList.remove('booked');
+
           cancelBooking(scheduleID);
         } else {
-          target.parentElement.remove();
+          listItem.remove();
           cancelSchedule(scheduleID);
         }
       }
@@ -109,9 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
     selectElement.add(new Option('<--Select one-->'));
 
     for (const {id, name} of staffData) {
-      // const optionText = name;
-      // const optionValue = id;
-
       const newOption = new Option(name, id);
       selectElement.add(newOption);
       }
@@ -184,3 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // if cancel booking button hit, fetch to cancel it, remove booked class from li, change button text
 
 // use setAttribute on the button element to link it to the schedule id
+
+// a late refactor:
+// for a booking, it would be more helpful to include the email of the student who is booked in the schedule list item. I place this on the 'cancel booking' button as a quick solution (adding it to the text has the issue of removing it when the booking is canceled).
