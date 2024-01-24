@@ -1,0 +1,38 @@
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+li {
+  max-width: 500px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid black;
+}
+
+li:first-of-type {
+  border-top: none;
+}
+
+.booked {
+  background-color: lightblue;
+}
+
+#schedule > p {
+  font-style: italic;
+  font-size: 14px;
+  padding-left: 20px;
+  color: blue;
+}
+
+button {
+  background-color: white;
+}
