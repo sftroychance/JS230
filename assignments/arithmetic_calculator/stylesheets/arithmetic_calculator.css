@@ -1,0 +1,26 @@
+body {
+  background-color: maroon;
+}
+
+div#content {
+  margin: 0 auto;
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  padding: 30px;
+}
+
+h1 {
+  color: blue;
+  font-size: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+form > input {
+  width: 30px;
+}

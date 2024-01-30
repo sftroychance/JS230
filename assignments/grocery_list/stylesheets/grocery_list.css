@@ -1,0 +1,54 @@
+body {
+  background-color: blue;
+  color: blue;
+}
+
+div#container {
+  width: 60%;
+  min-width: 250px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form label {
+  font-size: 20px;
+}
+
+form input {
+  height: 40px;
+  font-size: 30px;
+  color: black;
+  width: 200px;
+}
+
+form input[name="quantity"] {
+  width: 50px;
+}
+
+#addItem {
+  height: 40px;
+  font-size: 30px;
+  background-color: #863350;
+  color: white;
+}
+
+#listHeading {
+  text-align: center;
+}
+
+li {
+  font-size: 20px;
+}
+
+label {
+  font-weight: bold;
+  padding-top: 10px;
+}

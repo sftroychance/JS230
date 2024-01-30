@@ -50,16 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
       line.setAttribute('scheduleID', schedule.id);
 
       const lineText = document.createElement('p');
-      lineText.textContent = `Date: ${schedule.date} | Time: ${schedule.time}`;
+      lineText.textContent = `${schedule.date} - ${schedule.time}`;
       line.appendChild(lineText);
 
       const lineButton = document.createElement('button');
       lineButton.type = 'button';
 
       if (schedule.student_email) {
+        lineText.textContent += ` | ${schedule.student_email}`;
         line.classList.add('booked');
         lineButton.setAttribute('buttonTarget', 'booking');
-        lineButton.textContent = `Cancel booking: ${schedule.student_email}`;
+        lineButton.textContent = `Cancel booking`;
       } else {
         lineButton.setAttribute('buttonTarget', 'schedule');
         lineButton.textContent = 'Cancel schedule';
@@ -84,6 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
           target.textContent = 'Cancel schedule';
 
           listItem.classList.remove('booked');
+
+          const scheduleInfo = listItem.querySelector('p');
+          const scheduleText = scheduleInfo.textContent;
+          scheduleInfo.textContent = scheduleText.split(' | ')[0];
 
           cancelBooking(scheduleID);
         } else {
@@ -186,4 +191,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // use setAttribute on the button element to link it to the schedule id
 
 // a late refactor:
-// for a booking, it would be more helpful to include the email of the student who is booked in the schedule list item. I place this on the 'cancel booking' button as a quick solution (adding it to the text has the issue of removing it when the booking is canceled).
+// for a booking, it would be more helpful to include the email of the student who is booked in the schedule list item. I adjusted the paragraph in the schedule line to place the student name after a line break <br>, and then when the booking is canceled I removed the text after the line break.
