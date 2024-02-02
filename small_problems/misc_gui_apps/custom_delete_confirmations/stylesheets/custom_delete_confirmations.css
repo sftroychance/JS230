@@ -1,0 +1,102 @@
+body {
+  background-color: royalblue;
+  padding: 40px;
+  font-size: 18px;
+}
+
+main {
+  width: 500px;
+}
+
+h1 {
+  font-size: 32px;
+  color: white;
+  padding: 20px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+li {
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  height: 20px;
+  padding: 15px;
+}
+
+li button {
+  position: absolute;
+  top: 7px;
+  left: 92%;
+  height: 30px;
+  width: 20px;
+  border: none;
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: italic;
+}
+
+li button:hover {
+  transform: translateY(3px) translateX(-3px);
+  font-size: 32px;
+}
+
+#overlay {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+#modal {
+  display: none;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, 0);
+  height: 100px;
+  width: 450px;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 3;
+  padding: 30px;
+}
+
+#modal > div {
+  position: relative;
+  width: 450px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+#modal > div > button {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 50px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  right: 20%;
+  background-color: red;
+  color: white;
+
+  &.yes {
+    right: 5%;
+    background-color: green;
+  }
+  &:hover {
+    transform: translateX(-1px) translateY(-1px);
+  }
+}
