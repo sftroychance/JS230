@@ -1,11 +1,51 @@
 $(document).ready(function() {
   function bindEvents() {
     $('#todo_list').on('click', 'button', showModal);
+    $('#todo_list').on('contextmenu', 'li', showContextMenu);
     $('#nodelete').on('click', hideModal);
     $('#yesdelete').on('click', deleteTodo);
+    $(document).on('click', hideContextMenu);
+    $('#delete_todo_from_menu').on('click', showModal);
   }
 
-  function showModal() {
+  function hideContextMenu() {
+    $('#context_menu').removeClass('show-menu');
+  }
+
+  function showContextMenu(e) {
+    e.preventDefault();
+
+    const $menu = $('#context_menu');
+
+    $menu.data('id', $(this).data('id'));
+
+    const menuWidth = parseInt($menu.css('width'), 10);
+    const menuHeight = parseInt($menu.css('height'), 10);
+
+    const cssOptions = {};
+
+    if (e.clientY > window.innerHeight - menuHeight) {
+      cssOptions.top = e.clientY - menuHeight - 10;
+      cssOptions.transformOrigin = 'bottom';
+    } else {
+      cssOptions.top = e.clientY;
+      cssOptions.transformOrigin = 'top';
+    }
+
+    if (e.clientX > window.innerWidth - menuWidth) {
+      cssOptions.left = e.clientX - menuWidth - 10;
+      cssOptions.transformOrigin += ' right';
+    } else {
+      cssOptions.left = e.clientX;
+      cssOptions.transformOrigin += ' left';
+    }
+
+    $menu.css(cssOptions);
+
+    $menu.addClass('show-menu');
+  }
+
+  function showModal(e) {
     $('#yesdelete').data('delete_id', $(this).parent().data('id'));
 
     $('#overlay').fadeIn();

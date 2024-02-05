@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/whitespace-reset.css" />
   <link rel="stylesheet" href="stylesheets/context_menu_for_todo_app.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js" type="text/javascript"></script>
   <script id="todo_item" type="text/x-handlebars">
@@ -23,6 +24,11 @@
       <button id='nodelete'>No</button>
       <button id='yesdelete' class='yes'>Yes</button>
     </div>
+  </div>
+  <div id='context_menu' class='context-menu'>
+    <p><span class="material-symbols-rounded">description</span>Details</p>
+    <p><span class="material-symbols-rounded">edit</span>Edit</p>
+    <p id='delete_todo_from_menu'><span class="material-symbols-rounded">delete</span>Delete</p>
   </div>
   <main>
     <h1>Todos</h1>

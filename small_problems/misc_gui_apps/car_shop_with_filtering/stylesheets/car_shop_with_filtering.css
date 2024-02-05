@@ -1,0 +1,69 @@
+body {
+  font-size: 16px;
+}
+
+header {
+  background-color: rgb(222, 155, 30);
+  height: 100%;
+  min-height: 0;
+  color: white;
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+main div {
+  width: 200px;
+  height: 258px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+h1 {
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+ul.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+select {
+  width: 100px;
+  height: 25px;
+  color: white;
+  background: linear-gradient(#d3924c, #e9bd8b);
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+button {
+  background-color:rgb(222, 155, 30);
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  height: 25px;
+  padding: 3px 5px;
+}
+
+button.buy {
+  border: none;
+  width: 50px;
+  height: 30px;
+}

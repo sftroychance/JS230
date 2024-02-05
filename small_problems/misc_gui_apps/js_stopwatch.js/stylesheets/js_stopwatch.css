@@ -1,0 +1,12 @@
+p {
+  padding: 20px;
+}
+
+div {
+  background-color: black;
+  color: green;
+}
+span {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 60px;
+}

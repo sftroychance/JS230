@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel='stylesheet' href='stylesheets/whitespace-reset.css' />
+  <link rel='stylesheet' href='stylesheets/car_shop_with_filtering.css' />
+  <script src='https://code.jquery.com/jquery-3.7.1.js' integrity='sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=' crossorigin='anonymous' type='text/javascript'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js' type='text/javascript'></script>
+  <script defer src='javascripts/car_shop_with_filtering.js' type='text/javascript'></script>
+  <script id='options' type='text/x-handlebars'>
+    {{#each options}}
+      <option value='{{this}}'>{{this}}</option>
+    {{/each}}
+  </script>
+  <script id='car' class='partial' type='text/x-handlebars'>
+    <div>
+      <img src='{{image}}' />
+      <h3>{{make}} {{model}}</h3>
+      <p>Year: {{year}}</p>
+      <p>Price: ${{price}}</p>
+      <button type='button' class='buy'>Buy</button>
+    </div>
+  </script>
+  <script id='cars' type='text/x-handlebars'>
+    {{#each cars}}
+    {{> car}}
+    {{/each}}
+  </script>
+  <title>Car Shop with Filtering</title>
+</head>
+<body>
+  <header>
+    <h1>Buy Used Cars</h1>
+    <ul class='nav' id='nav'>
+      <li>
+        <label for='make'>Make</label>
+        <select id='make'>
+        </select>
+      </li>
+      <li>
+        <label for='model'>Model</label>
+        <select id='model'>
+        </select>
+      </li>
+      <li>
+        <label for='price'>Price</label>
+        <select id='price'>
+        </select>
+      </li>
+      <li>
+        <label for='year'>Year</label>
+        <select id='year'>
+        </select>
+      </li>
+      <li>
+        <button id='btn-filter' type='button'>Filter</button>
+      </li>
+    </ul>
+  </header>
+  <main></main>
+</body>
+</html>
