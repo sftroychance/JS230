@@ -38,8 +38,98 @@ Notes on demo:
 - if you are entering a negative value, you must hit NEG after entering the number; if you enter it before, if you just entered an operation key, the neg will be ignored; if there is a value in the window, it will make that value negative
 - if you hit two operators in a row, the first operator will execute with the value in the window as the second operand, and that will be the first value of the next operator
 
+- possibly unintended behavior: if you click '.' before entering a value, it usually discards the decimal unless something is already in the current entry; however, if you enter a number and then hit 'ce' or 'c' and then '.', the decimal is not discarded
+
 ## HTML
 
+div - main
+  - p operation on progress
+  - p current entry
+  - horizonal line (bottom border on current entry)
+  - div keypad
+    - 20 buttons
+
 ## CSS
+main div: flex column
+p in progress align flex end
+p current entry: larger text align flex end
+
+button div: flex row wrap (not complicated enough to need grid)
+
+button:
 
 ## JS
+event listener on keypad and then direct to buttons
+remember that fields as displayed are strings
+switch statement on button 'value'
+`NaN` and `Infinity` results
+types of buttons:
+- digits
+- arith operators - dispatch table - for all arith (including =) you call the function with the two operands and display the value in current entry
+  - if there is an operand1, do the operation; if there is no operand1, move current value to operand 1 and leave that value in the current entry
+- =
+- neg
+- c - clears all in progress - clear operands, clear current total, set entry to 0
+- ce - clears only current entry - set entry to 0
+- . (decimal)
+
+When the first digit is placed into the entry, a flag needs to be set to indicate that input is starting; when a result is displayed, you don't want the next digit entered to be concatenated--you want it to replace the current entry; but otherwise you do want the digit concatenated
+
+click digit:
+if !entryInProgres
+  - set entryInProgress to true
+  - set currentEntry to digit
+else
+  if currentEntry === 0
+  - set currentEntry to digit
+  else
+  - append digit to currentEntry
+
+click operation:
+if operand1
+- execute prevOperation between operand1 and currentEntry
+- save result to currentTotal
+- move result to currentEntry
+- append operator to in Progress
+- set prevOperation to current operation
+- set entryInProgress to false
+else
+- append currentEntry and operator to inProgress
+- set operand1 to currentEntry
+- set prevOperation to current operation
+- set entryInProgress to false
+
+click =
+if operand1
+- execute prevOperation between operand1 and currentEntry
+- move result to currentEntry
+- set currentTotal to 0
+- set prevOperation to null;
+- set entryInProgress to false;
+- set operationHistory to ''
+
+click .
+if initiateEntry or already a decimal in currentEntry
+- do nothing
+else
+- append to currentEntry
+
+click neg
+if initiateEntry
+- do nothing
+else
+- prepend to currentEntry
+
+click CE
+- set currentEntry to 0
+- set entryInProgress to false
+
+click C
+- set entryInProgress to false
+- set currentEntry to 0
+- set operand1 to null
+- set operationHistory to ''
+- set currentTotal to null
+
+
+
