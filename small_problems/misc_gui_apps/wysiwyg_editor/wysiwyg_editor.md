@@ -61,3 +61,9 @@ My strategy:
 
 I will study text events--clicking into an editable text field should give some event feedback for where you are in the text; we need to find the selection/insertion point to determine the parents.
 
+# notes
+Spent too long trying to manually set the button status (selected) based on the selection point in the text. That function is automated with the use of `document.queryCommandState`; since I have the actual command names as part of the buttons, to toggle the button status, just need to iterate over them.
+
+I did have some success in doing this just using Selection/Range and figuring out how that works to some extent, but I never could work out how to set status of the buttons on a range that has mixed styles applied. When I gave up and viewed student solutions, I saw the use of `document.queryCommandState` and found that the process was much easier with that.
+
+It was helpful for practice of figuring out solutions using the documentation, but with `execCommand` and `document.queryCommandState` being deprecated, the specifics of those aren't as relevant.

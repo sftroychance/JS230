@@ -50,25 +50,31 @@ span {
   height: 15px;
 }
 
-button:hover {
+.selected {
   background-color:rgb(226, 225, 225)
 }
 
 #content {
-  height: 500px;
-  width: 500px;
-}
-
-#content p {
+  /* height: 500px;
+  width: 500px; */
   position: absolute;
   top: 50px;
   bottom: 5px;
   right: 10px;
   left: 10px;
   font-size: 20px;
+  text-align: left;
 }
+/* #content p {
+  position: absolute;
+  top: 50px;
+  bottom: 5px;
+  right: 10px;
+  left: 10px;
+  font-size: 20px;
+} */
 
-#content p:focus {
+#content:focus {
   outline: 0px solid transparent;
 }
 

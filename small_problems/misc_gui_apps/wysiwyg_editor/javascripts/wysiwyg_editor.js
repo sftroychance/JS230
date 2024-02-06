@@ -8,8 +8,22 @@ $(document).ready(function() {
       link = prompt('What is the link address?');
       console.log('create link', link);
     }
-    console.log(link);
+
     document.execCommand(command, false, link ?? '');
-    $('#content p').get(0).focus();
-  })
+
+    toggleButtons();
+    $('#content').get(0).focus();
+  });
+
+  $(document).on('selectionchange', toggleButtons);
+
+  function toggleButtons() {
+    const buttons = $('#commands').find('button');
+
+    for (const button of buttons) {
+      const $button = $(button);
+      let command = $button.data().command;
+      $button.toggleClass('selected', document.queryCommandState(command));
+    }
+  }
 });
