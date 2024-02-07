@@ -1,0 +1,91 @@
+body {
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+  padding: 20px;
+}
+
+body > div {
+  padding: 40px;
+  width: 550px;
+  background-color: white;
+  color: black;
+  margin: 0 auto;
+}
+
+#form-error {
+  color: red;
+  /* padding: 20px 0px; */
+  height: 40px;
+
+}
+
+form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+form li div {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+}
+
+form li label {
+  font-weight: bold;
+  width: 150px;
+}
+
+form li input {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  padding: 0px 5px;
+  border: 1px solid black;
+
+  &::placeholder {
+    opacity: 0.6;
+  }
+}
+
+form li input[name='credit-card'] {
+  width: 50px;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.validation-error {
+  padding-left: 8px;
+  color: red;
+}
+
+button {
+  font-weight: bold;
+  height: 30px;
+  width: 80px;
+  background-color: rgb(7, 201, 7);
+}
+
+input[name="credit-card"]::before {
+  content: '-';
+}
+
+#output p {
+  word-wrap: break-word;
+}
