@@ -1,0 +1,79 @@
+body {
+  background-color: rgb(221, 196, 164);
+  font-size: 20px;
+}
+
+main {
+  width: 600px;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  padding: 20px 0px;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.question p {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.answer {
+  opacity: 0;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.wrong-answer, .no-answer {
+  opacity: 1;
+  border-color: red;
+}
+
+.right-answer {
+  opacity: 1;
+  border-color: green;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+button {
+  font-weight: bold;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+
+  &[type='submit'] {
+    background-color: rgb(154, 249, 154);
+  }
+
+  &[type='reset'] {
+    background-color: rgb(251, 137, 137);
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#submit-quiz.disabled {
+  background-color: gray;
+}
