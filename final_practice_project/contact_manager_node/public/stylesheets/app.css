@@ -1,0 +1,227 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 400px;
+  width: auto;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+h3 {
+  padding: 10px 0px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(purple, rgb(191, 2, 191));
+  padding: 20px;
+  color: white;
+}
+
+#list {
+  width: 90vw;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#list .subheader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(237, 235, 235);
+  gap: 20px;
+  padding: 20px 0px;
+}
+
+.large-button {
+  height: 35px;
+  border-radius: 5px;
+  padding: 0px 16px;
+  font-size: 16px;
+  border: 1px solid black;
+  background: none;
+}
+
+input {
+  width: 200px;
+  height: 24px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0px 5px;
+}
+
+.contacts-listing {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 20px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+  width: 190px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(216, 213, 213);
+}
+
+.btn-tag {
+  height: 15px;
+  background-color: rgb(87, 159, 181);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 10px;
+  font-weight: normal;
+  line-height: 1em;
+}
+
+.contact-links {
+  padding: 5px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.contact-links button {
+  font-size: 12px;
+  height: 24px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding-left: 22px;
+}
+
+.no-search-result {
+  padding: 30px;
+  background-color: lightgray;
+  margin: 0 auto;
+}
+
+.no-search-result p {
+  font-size: 24px;
+}
+
+.btn-edit {
+  background: url('/images/iconmonstr-pencil-lined.svg') no-repeat center left 5%;
+  background-size: 16px 16px;
+}
+
+.btn-delete {
+  background: url('/images/iconmonstr-trash-can-lined.svg') no-repeat center left 5%;
+  background-size: 16px 16px;
+}
+
+.tags {
+  padding: 5px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+.contact-add,
+.contact-edit {
+  padding-top: 10px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.contact-add form,
+.contact-edit form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+form li div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+form li label {
+  width: 150px;
+  text-align: right;
+  font-weight: bold;
+}
+
+form li input {
+  width: 400px;
+}
+
+form button {
+  width: 200px;
+}
+
+.buttons {
+  padding-left: 160px;
+}
+
+button:hover {
+  color: white;
+  background-color: purple;
+}
+
+.error {
+  display: none;
+  color: darkred;
+  font-size: 10px;
+  align-self: start;
+  padding: 0 0 10px 170px;
+}
+
+.show {
+  display: block;
+}
+
+div.invalid {
+  & label {
+    color: darkred;
+  }
+  & input {
+    border: 1px solid darkred;
+  }
+}

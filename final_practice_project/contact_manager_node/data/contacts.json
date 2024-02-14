@@ -1,0 +1,72 @@
+[
+  {
+    "id": 2,
+    "full_name": "Victor Reyes",
+    "email": "vpr@example.com",
+    "phone_number": "09876543210",
+    "tags": "work,friend,HR"
+  },
+  {
+    "full_name": "Troy Graves",
+    "phone_number": "4154076633",
+    "email": "me@me.com",
+    "tags": "myself",
+    "id": 4
+  },
+  {
+    "full_name": "James Day",
+    "phone_number": "12345678902",
+    "email": "day@day.com",
+    "tags": "family",
+    "id": 5
+  },
+  {
+    "full_name": "Haverford Kosta",
+    "phone_number": "12345689197",
+    "email": "hk@me.com",
+    "tags": "HR",
+    "id": 8
+  },
+  {
+    "full_name": "Carol Say",
+    "phone_number": "123457800127",
+    "email": "say@say.com",
+    "tags": "",
+    "id": 9
+  },
+  {
+    "full_name": "OK Paco",
+    "phone_number": "123512098727",
+    "email": "me@me.com",
+    "tags": "work",
+    "id": 10
+  },
+  {
+    "full_name": "Sam Davis",
+    "phone_number": "1235120987177",
+    "email": "davis@sam.com",
+    "tags": "",
+    "id": 11
+  },
+  {
+    "full_name": "Amy Day",
+    "phone_number": "123515125155",
+    "email": "amy@day.com",
+    "tags": "",
+    "id": 12
+  },
+  {
+    "full_name": "Carson Ford",
+    "phone_number": "123515151515",
+    "email": "carson@ford.com",
+    "tags": "school",
+    "id": 13
+  },
+  {
+    "full_name": "Hannibal Ovary",
+    "phone_number": "123551220860",
+    "email": "ho@me.com",
+    "tags": "",
+    "id": 14
+  }
+]

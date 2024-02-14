@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Troy's Contacts Manager</title>
+  <link rel='stylesheet' href='/stylesheets/whitespace-reset.css' />
+  <link rel='stylesheet' href='/stylesheets/app.css' />
+  <script defer src="/javascripts/jquery.js"></script>
+  <script defer src="/javascripts/handlebars.js"></script>
+  <script defer id='contacts' type='text/x-handlebars'>
+      {{#each contacts}}
+        {{> contact}}
+      {{/each}}
+  </script>
+  <script defer id='contact' class='partial' type='text/x-handlebars'>
+    <div class='contact' data-id='{{id}}'>
+      <h3>{{full_name}}</h3>
+      <h4>Phone number:</h4>
+      <p>{{phone_number}}</p>
+      <h4>Email:</h4>
+      <p>{{email}}</p>
+      <div class='tags'>
+        {{#each tags}}
+          {{> tag}}
+        {{/each}}
+      </div>
+      <div class='contact-links'>
+        <button data-id='{{id}}' type='button' class='btn-edit'>Edit</button>
+        <button data-id='{{id}}' type='button' class='btn-delete'>Delete</button>
+      </div>
+    </div>
+  </script>
+  <script defer id='tag' class='partial' type='text/x-handlebars'>
+     <button type='button' class='btn-tag'>{{this}}</button>
+  </script>
+  <script defer src="/javascripts/app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Troy's Contacts Manager</h1>
+    <h2>A project using jQuery and Handlebars</h2>
+  </header>
+  <div id='list'>
+    <div class='subheader'>
+      <button id='btn-add-contact' type='button' class='large-button'>Add Contact</button>
+      <input type='text' id='search-field' placeholder='Search'/>
+    </div>
+    <div class='contacts-listing'></div>
+  </div>
+  <div class='contact-add' id='create-contact' style='display:none'>
+    <h1>Create Contact</h1>
+    <form>
+      <ul>
+        <li>
+          <div>
+            <label for='full_name'>Full name:</label>
+            <input type='text' name='full_name' id='full_name' />
+          </div>
+          <p class='error'>Please enter a name.</p>
+        </li>
+        <li>
+          <div>
+            <label for='email'>Email address:</label>
+            <input type='text' name='email' id='email' />
+          </div>
+          <p class='error'>Please enter a valid email.</p>
+        </li>
+        <li>
+          <div>
+            <label for='phone'>Telephone number:</label>
+            <input type='text' name='phone_number' id='phone' />
+          </div>
+          <p class='error'>Please enter a phone number.</p>
+        </li>
+        <li>
+          <div>
+            <label for='tags'>Tags:</label>
+            <input type='text' name='tags' id='tags' />
+          </div>
+        </li>
+        <li class='buttons'>
+          <div>
+          <button type='submit' id='btn-new-contact' class='large-button'>Submit</button>
+          <button type='button' id='btn-cancel' class='large-button'>Cancel</button>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div class='contact-edit' id='edit-contact' style='display:none'>
+    <h1>Edit Contact</h1>
+    <form>
+      <ul>
+        <li>
+          <div>
+            <label for='full_name'>Full name:</label>
+            <input type='text' name='full_name' id='full_name' />
+          </div>
+          <p class='error'>Please enter a name.</p>
+        </li>
+        <li>
+          <div>
+            <label for='email'>Email address:</label>
+            <input type='text' name='email' id='email' />
+          </div>
+          <p class='error'>Please enter a valid email address.</p>
+        </li>
+        <li>
+          <div>
+            <label for='phone'>Telephone number:</label>
+            <input type='text' name='phone_number' id='phone' />
+          </div>
+          <p class='error'>Please enter a phone number.</p>
+        </li>
+        <li>
+          <div>
+            <label for='tags'>Tags:</label>
+            <input type='text' name='tags' id='tags' />
+          </div>
+        </li>
+        <li class='buttons'>
+          <div>
+            <button type='submit' id='btn-edit-contact' class='large-button'>Submit</button>
+            <button type='button' id='btn-edit-cancel' class='large-button'>Cancel</button>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+</body>
+</html>
